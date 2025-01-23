@@ -1,7 +1,7 @@
 package com.megacitycab.megacitycab.entity;
 
+import com.megacitycab.megacitycab.enums.BookingStatus;
 import com.megacitycab.megacitycab.enums.CarStatus;
-import com.megacitycab.megacitycab.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +10,9 @@ import lombok.ToString;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -19,26 +20,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Car {
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String registration_number;
-    private String brand;
-    private String color;
-    private String fuel_type;
-    private int number_of_passengers;
-    private String type;
-
-    private double price_per_km;
-
-    private String front_image;
-    private String interior_image;
-    private String back_image;
-    private String side_image;
+    private String pickup_location;
+    private String destination;
+    private double Kilometers_count_between_pickup_location_and_destination;
+    private LocalDate pick_up_date;
+    private LocalTime pick_up_time;
 
     @Enumerated(EnumType.STRING)
-    private CarStatus status;
+    private BookingStatus status;
 
     private String createdBy;
     private String updatedBy;
@@ -46,9 +39,14 @@ public class Car {
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "id.car")
-    private List<DriverAndCarDetails> driverAndCarDetails;
+    @ManyToOne
+    private Customer customer;
 
-    @OneToMany(mappedBy = "car")
-    private List<Booking> bookings;
+    @ManyToOne
+    private Driver driver;
+
+    @ManyToOne
+    private Car car;
+
+
 }

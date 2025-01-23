@@ -42,4 +42,7 @@ public class Driver {
 
     @OneToMany(mappedBy = "id.driver")
     private List<DriverAndCarDetails> driverAndCarDetails;
+
+    @OneToMany(mappedBy = "driver")
+    private List<Booking> bookings;
 }

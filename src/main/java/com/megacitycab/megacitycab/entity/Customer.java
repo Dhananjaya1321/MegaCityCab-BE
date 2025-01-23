@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -39,4 +40,7 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Booking> bookings;
 }
