@@ -1,6 +1,6 @@
 package com.megacitycab.megacitycab.entity;
 
-import com.megacitycab.megacitycab.enums.DriverStatus;
+import com.megacitycab.megacitycab.enums.CarStatus;
 import com.megacitycab.megacitycab.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,17 +19,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Driver {
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String nic;
-    private String address;
-    private String contact;
+    private String registration_number;
+    private String brand;
+    private String color;
+    private String fuel_type;
+    private int number_of_passengers;
+    private String type;
+
+    private String front_image;
+    private String interior_image;
+    private String back_image;
+    private String side_image;
 
     @Enumerated(EnumType.STRING)
-    private DriverStatus status;
+    private CarStatus status;
 
     private String createdBy;
     private String updatedBy;
@@ -37,9 +44,6 @@ public class Driver {
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
-
-    @OneToMany(mappedBy = "id.driver")
+    @OneToMany(mappedBy = "id.car")
     private List<DriverAndCarDetails> driverAndCarDetails;
 }

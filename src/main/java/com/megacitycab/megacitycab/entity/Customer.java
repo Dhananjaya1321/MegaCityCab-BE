@@ -1,5 +1,6 @@
 package com.megacitycab.megacitycab.entity;
 
+import com.megacitycab.megacitycab.enums.CustomerStatus;
 import com.megacitycab.megacitycab.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,7 @@ public class Customer {
     private String contact;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    private CustomerStatus status;
 
     private String createdBy;
     private String updatedBy;
