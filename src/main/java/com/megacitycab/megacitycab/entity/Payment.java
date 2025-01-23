@@ -39,4 +39,7 @@ public class Payment {
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Booking booking;
+
 }
