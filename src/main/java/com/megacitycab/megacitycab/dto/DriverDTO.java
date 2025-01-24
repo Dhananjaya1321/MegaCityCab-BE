@@ -1,5 +1,6 @@
 package com.megacitycab.megacitycab.dto;
 
+import com.megacitycab.megacitycab.entity.User;
 import com.megacitycab.megacitycab.enums.DriverStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,16 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DriverDTO {
-      private Integer id;
+    private Integer id;
     private String name;
     private String nic;
     private String address;
     private String contact;
-
     private DriverStatus status;
-
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
+
+    private UserDTO user;
+
 }

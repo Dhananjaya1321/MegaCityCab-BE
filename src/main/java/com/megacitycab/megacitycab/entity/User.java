@@ -33,9 +33,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 }
