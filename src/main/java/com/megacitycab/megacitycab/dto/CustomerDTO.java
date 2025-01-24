@@ -19,8 +19,7 @@ public class CustomerDTO {
     private String nic;
     private String address;
     private String contact;
-
     private CustomerStatus status;
-
     private LocalDateTime lastUpdate;
+    private UserDTO user;
 }
