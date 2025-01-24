@@ -25,8 +25,5 @@ public class PaymentDTO {
 
     private PaymentStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
 }

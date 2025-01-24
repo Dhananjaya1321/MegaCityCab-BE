@@ -24,8 +24,5 @@ public class BookingDTO {
 
     private BookingStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
 }

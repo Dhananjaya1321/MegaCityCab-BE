@@ -22,8 +22,5 @@ public class CustomerDTO {
 
     private CustomerStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
 }

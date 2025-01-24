@@ -33,9 +33,6 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 

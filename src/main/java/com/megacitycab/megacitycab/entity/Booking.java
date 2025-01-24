@@ -33,9 +33,6 @@ public class Booking {
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 

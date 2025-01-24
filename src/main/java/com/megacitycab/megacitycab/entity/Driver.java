@@ -31,9 +31,6 @@ public class Driver {
     @Enumerated(EnumType.STRING)
     private DriverStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 

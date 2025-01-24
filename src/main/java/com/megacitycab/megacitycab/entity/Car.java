@@ -40,9 +40,6 @@ public class Car {
     @Enumerated(EnumType.STRING)
     private CarStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 

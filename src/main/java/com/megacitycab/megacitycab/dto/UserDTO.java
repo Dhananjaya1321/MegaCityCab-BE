@@ -24,8 +24,5 @@ public class UserDTO {
 
     private UserStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
 }

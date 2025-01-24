@@ -30,9 +30,6 @@ public class CarDTO {
 
     private CarStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     private LocalDateTime lastUpdate;
 
 }

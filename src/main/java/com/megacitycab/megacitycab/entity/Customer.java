@@ -32,9 +32,6 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private CustomerStatus status;
 
-    private String createdBy;
-    private String updatedBy;
-
     @LastModifiedDate
     private LocalDateTime lastUpdate;
 
