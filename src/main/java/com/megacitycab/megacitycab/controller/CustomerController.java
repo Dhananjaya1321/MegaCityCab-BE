@@ -38,4 +38,24 @@ public class CustomerController {
             return ExceptionHandler.handleException(e);
         }
     }
+
+    @DeleteMapping("/{id}")
+    private ResponseEntity<ResponseUtil> deleteCustomer(
+            @PathVariable("id") Integer id
+    ) {
+        try {
+            if (customerService.deleteCustomer(id)) {
+                return ResponseEntity.ok(new ResponseUtil(HttpStatus.OK, "Successfully deleted", id));
+            } else {
+                return ResponseEntity.ok(new ResponseUtil(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong!", id));
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+
+            if (e.getMessage().equals("Customer is not exists!") || e.getMessage().equals("Something went wrong!"))
+                return ExceptionHandler.handleCustomException(HttpStatus.BAD_REQUEST, e);
+
+            return ExceptionHandler.handleException(e);
+        }
+    }
 }

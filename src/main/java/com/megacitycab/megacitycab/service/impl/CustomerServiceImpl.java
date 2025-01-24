@@ -73,4 +73,12 @@ public class CustomerServiceImpl implements CustomerService {
             return dto;
         }
     }
+
+    @Override
+    public boolean deleteCustomer(Integer id) {
+        if (!customerRepo.existsById(id) || customerRepo.getStatus(id).equals(CustomerStatus.DELETED))
+            throw new RuntimeException("Customer is not exists!");
+
+        return customerRepo.deleteCustomer(id) > 0;
+    }
 }
