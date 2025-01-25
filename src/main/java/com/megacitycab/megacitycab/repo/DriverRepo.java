@@ -4,6 +4,7 @@ import com.megacitycab.megacitycab.entity.Driver;
 import com.megacitycab.megacitycab.entity.User;
 import com.megacitycab.megacitycab.enums.DriverStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface DriverRepo extends JpaRepository<Driver, Integer> {
@@ -12,4 +13,8 @@ public interface DriverRepo extends JpaRepository<Driver, Integer> {
 
     @Query(value = "SELECT u.id FROM Driver d LEFT JOIN User u ON d.user.id=u.id WHERE d.id=:id")
     int getUserId(Integer id);
+
+    @Modifying
+    @Query(value = "UPDATE Driver d SET d.status='DELETED' WHERE d.id=:id")
+    int deleteDriver(Integer id);
 }

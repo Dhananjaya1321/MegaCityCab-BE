@@ -6,4 +6,6 @@ import com.megacitycab.megacitycab.dto.DriverDTO;
 public interface DriverService {
 
     DriverDTO saveAndUpdateDriver(DriverDTO dto);
+
+    boolean deleteDriver(Integer id);
 }

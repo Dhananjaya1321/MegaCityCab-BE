@@ -5,6 +5,7 @@ import com.megacitycab.megacitycab.dto.DriverDTO;
 import com.megacitycab.megacitycab.dto.UserDTO;
 import com.megacitycab.megacitycab.entity.Driver;
 import com.megacitycab.megacitycab.entity.User;
+import com.megacitycab.megacitycab.enums.CustomerStatus;
 import com.megacitycab.megacitycab.enums.DriverStatus;
 import com.megacitycab.megacitycab.enums.UserRoles;
 import com.megacitycab.megacitycab.enums.UserStatus;
@@ -72,5 +73,13 @@ public class DriverServiceImpl implements DriverService {
             dto.setId(driver.getId());
             return dto;
         }
+    }
+
+    @Override
+    public boolean deleteDriver(Integer id) {
+        if (!driverRepo.existsById(id) || driverRepo.getStatus(id).equals(DriverStatus.DELETED))
+            throw new RuntimeException("Driver is not exists!");
+
+        return driverRepo.deleteDriver(id) > 0;
     }
 }
